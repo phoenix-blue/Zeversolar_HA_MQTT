@@ -1,0 +1,140 @@
+[
+    {
+        "id": "40b41dd6.a20f24",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cde94c3e.b3dd1",
+        "type": "mqtt in",
+        "z": "40b41dd6.a20f24",
+        "name": "MQTT input",
+        "topic": "/Check MQTT inside for/topic/Action",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "c66e0896.be5488",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "e39e8625.b7fc58"
+            ]
+        ]
+    },
+    {
+        "id": "6a1db33f.7648fc",
+        "type": "debug",
+        "z": "40b41dd6.a20f24",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e39e8625.b7fc58",
+        "type": "json",
+        "z": "40b41dd6.a20f24",
+        "name": "JSON converter",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "87c77e67.810b2"
+            ]
+        ]
+    },
+    {
+        "id": "87c77e67.810b2",
+        "type": "split",
+        "z": "40b41dd6.a20f24",
+        "name": "split",
+        "splt": ",",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "key",
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "2707d2ac.1cc5de"
+            ]
+        ]
+    },
+    {
+        "id": "2707d2ac.1cc5de",
+        "type": "change",
+        "z": "40b41dd6.a20f24",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "\"sensor/status/\" & key",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 400,
+        "wires": [
+            [
+                "8f807dac.8c00d",
+                "6a1db33f.7648fc"
+            ]
+        ]
+    },
+    {
+        "id": "8f807dac.8c00d",
+        "type": "mqtt out",
+        "z": "40b41dd6.a20f24",
+        "name": "Output naar MQTT",
+        "topic": "",
+        "qos": "0",
+        "retain": "",
+        "broker": "c66e0896.be5488",
+        "x": 680,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c66e0896.be5488",
+        "type": "mqtt-broker",
+        "name": "MQTT",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "Node-RED",
+        "birthQos": "0",
+        "birthPayload": "Online",
+        "closeTopic": "Node-RED",
+        "closeQos": "0",
+        "closePayload": "offline",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
