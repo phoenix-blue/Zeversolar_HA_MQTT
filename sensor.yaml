@@ -34,7 +34,7 @@
     unit_of_measurement: V
     
   - platform: mqtt
-    name: Inverter itv ?
+    name: Inverter itv # must found out what for value this is
     state_topic: "sensor/status/itv"
     unit_of_measurement: ""
     
@@ -56,6 +56,6 @@
     unit_of_measurement: kWh
 
   - platform: mqtt
-    name: Inverter status
+    name: Inverter status # must found out the status code
     state_topic: "sensor/status/smp"
     unit_of_measurement: ""
