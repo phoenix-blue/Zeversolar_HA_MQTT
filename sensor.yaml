@@ -1,0 +1,61 @@
+  - platform: mqtt
+    name: Inverter temperature
+    state_topic: "sensor/status/tem"
+    value_template: "{{ (value | float) / 10 }}"
+    unit_of_measurement: °C
+
+  - platform: mqtt
+    name: Inverter power line freq.
+    state_topic: "sensor/status/fac"
+    value_template: "{{ (value | float) / 100 }}"
+    unit_of_measurement: "Hz"
+    
+  - platform: mqtt
+    name: Inverter delivered power
+    state_topic: "sensor/status/pac"
+    unit_of_measurement: W
+    
+  - platform: mqtt
+    name: Inverter voltage input DC
+    state_topic: "sensor/status/vp1"
+    value_template: "{{ (value | float) / 10 }}"
+    unit_of_measurement: V
+    
+  - platform: mqtt
+    name: Inverter input current
+    state_topic: "sensor/status/ip1"
+    value_template: "{{ (value | float) / 10 }}"
+    unit_of_measurement: A
+    
+  - platform: mqtt
+    name: Inverter power line voltage
+    state_topic: "sensor/status/va1"
+    value_template: "{{ (value | float) / 10 }}"
+    unit_of_measurement: V
+    
+  - platform: mqtt
+    name: Inverter itv ?
+    state_topic: "sensor/status/itv"
+    unit_of_measurement: ""
+    
+  - platform: mqtt
+    name: Inverter running hours
+    state_topic: "sensor/status/hto"
+    unit_of_measurement: "uur"
+    
+  - platform: mqtt
+    name: Inverter day production
+    state_topic: "sensor/status/etd"
+    value_template: "{{ (value | float) / 100 }}"
+    unit_of_measurement: kWh
+    
+  - platform: mqtt
+    name: Inverter total production
+    state_topic: "sensor/status/eto"
+    value_template: "{{ (value | float) / 10 }}"
+    unit_of_measurement: kWh
+
+  - platform: mqtt
+    name: Inverter status
+    state_topic: "sensor/status/smp"
+    unit_of_measurement: ""
