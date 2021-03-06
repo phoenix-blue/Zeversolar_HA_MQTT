@@ -56,6 +56,6 @@
     unit_of_measurement: kWh
 
   - platform: mqtt
-    name: Inverter status # must found out the status code
-    state_topic: "sensor/status/smp"
+    name: Inverter status # must found out the status code table
+    state_topic: "sensor/status/cod"
     unit_of_measurement: ""
