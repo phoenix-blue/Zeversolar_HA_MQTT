@@ -26,3 +26,5 @@ Last step, inside the sensor.yaml file you can find all the value's that can be 
 two unknown point:
 Status -> I think the status is nothing more than a value like the error codes.
 itv value -> unknown what this value is.
+
+This project will be closed because of the possibility to use the direct API connection to Zevercloud.
